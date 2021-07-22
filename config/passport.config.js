@@ -9,7 +9,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:5000/auth/google/callback", //TODO Acá, cuando se suba a producción, hay que cambiar la url.
+      callbackURL: "https://backend-kesesa.vercel.app/auth/google/callback", //TODO Acá, cuando se suba a producción, hay que cambiar la url.
       passReqToCallback: true,
     },
     async function (request, accessToken, refreshToken, profile, done) {
