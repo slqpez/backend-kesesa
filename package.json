@@ -1,0 +1,32 @@
+{
+  "name": "backend-kesesa",
+  "version": "1.0.0",
+  "description": "Backend for PI kesesa.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Santiago López",
+  "license": "ISC",
+  "dependencies": {
+    "cloudinary": "^1.26.2",
+    "connect-mongo": "^4.4.1",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^5.13.2",
+    "passport": "^0.4.1",
+    "passport-google-oauth2": "^0.2.0"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12"
+  }
+}
