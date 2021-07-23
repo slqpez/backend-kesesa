@@ -7,6 +7,8 @@ const express = require("express");
 const router = express.Router();
 const authController = require('../controllers/auth.controller.js')
 
+
+
 router.get("/login/success", authController.loginSucces);
 router.get("/login/failed", authController.loginFailed );
 router.get("/logout", authController.logout);
@@ -19,7 +21,7 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: process.env.CLIENT_URL + "/profile",
+    successRedirect: "http://localhost:3000",
     failureRedirect: "/auth/login/failed",
   })
 );
