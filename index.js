@@ -36,9 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(
-  cors({
-    origin: process.env.CLIENT_URL,  //TODO cambiar cuando se despliegue el front.
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  cors({ //TODO cambiar cuando se despliegue el front.
     credentials: true 
   })
 );
