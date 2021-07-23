@@ -36,8 +36,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(
-  cors({ //TODO cambiar cuando se despliegue el front.
-    credentials: true 
+  cors({ 
+    origin: "http://localhost:3000", //TODO cambiar cuando se despliegue el front.
+    credentials: true,
+    method: "GET, POST, PUT, DELETE, PATCH"
   })
 );
 
