@@ -2,8 +2,6 @@ require("dotenv").config();
 require("./config/DB.config.js");
 
 const express = require("express");
-const morgan = require("morgan");
-const chalk = require("chalk");
 const fileupload = require("express-fileupload");
 const passport = require("passport");
 const cors = require("cors");
@@ -48,11 +46,7 @@ app.use(
 
 
 
-/* app.use(
-  morgan(
-    chalk`:method :url {green :status} :response-time ms - :res[content-length]`
-  )
-); */
+
 app.use(
   fileupload({
     useTempFiles: true,
