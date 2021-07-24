@@ -14,8 +14,8 @@
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         { "key": "Access-Control-Allow-Origin", "value": "http://localhost:3000" },
         { "key": "Access-Control-Allow-Methods", "value": "GET,PATCH,DELETE,POST,PUT" },
-        { "key": "optionsSuccessStatus", "value": 204 },
-        { "key": "preflightContinue", "value": false }
+        { "key": "optionsSuccessStatus", "value": "204" },
+        { "key": "preflightContinue", "value": "false" }
       ]
     }
   ]
