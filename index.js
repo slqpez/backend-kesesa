@@ -48,11 +48,11 @@ app.use(
 
 
 
-app.use(
+/* app.use(
   morgan(
     chalk`:method :url {green :status} :response-time ms - :res[content-length]`
   )
-);
+); */
 app.use(
   fileupload({
     useTempFiles: true,
