@@ -3,7 +3,7 @@ const authController ={
 
     loginSucces:  (req, res) => {
         if (req.user) {
-          res.json({
+          res.status(200).json({
             success: true,
             message: "user has successfully authenticated",
             user: req.user,
