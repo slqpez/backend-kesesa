@@ -21,7 +21,7 @@ const authController ={
 
       logout: (req, res) => {
         req.logout();
-        res.redirect(process.env.CLIENT_URL)
+        res.redirect("https://frontend-kesesa.vercel.app/")
       },
 
       
