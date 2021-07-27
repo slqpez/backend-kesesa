@@ -35,7 +35,7 @@ app.use(passport.session());
 
 app.use(
   cors({ 
-    origin: "http://localhost:3000", //TODO cambiar cuando se despliegue el front.
+    origin: "https://frontend-kesesa.vercel.app/", //TODO cambiar cuando se despliegue el front.
     credentials: true,
     method: "GET, POST, PUT, DELETE, PATCH"
   })
