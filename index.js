@@ -6,46 +6,36 @@ const fileupload = require("express-fileupload");
 const passport = require("passport");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
-const cookieParser = require("cookie-parser")
-
+const cookieParser = require("cookie-parser");
 
 const indexRouter = require("./routes/index.routes.js");
 const usersRouter = require("./routes/users.routes.js");
 const documentsRouter = require("./routes/documents.routes.js");
 const authRouter = require("./routes/auth.routes.js");
 
-
 const app = express();
-
 
 app.use(
   cookieSession({
     name: "session",
     keys: [process.env.SECRET_KEY],
-    maxAge: 24 * 60 * 60 * 100
+    maxAge: 24 * 60 * 60 * 100,
   })
-  );
-  
-  app.use(express.json());
-app.use(cookieParser())
+);
+
+app.use(express.json());
+app.use(cookieParser());
 
 app.use(passport.initialize());
 
 app.use(passport.session());
 
 app.use(
-  cors({ 
-     //TODO cambiar cuando se despliegue el front.
-    origin: [ 'https://frontend-kesesa.vercel.app', 'http://localhost:3000'],
-    credentials: true
+  cors({
+    origin:  "http://localhost:3000",
+    credentials: true,
   })
-); 
-
-
-
-
-
-
+);
 
 app.use(
   fileupload({

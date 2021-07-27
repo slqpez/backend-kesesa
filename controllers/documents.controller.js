@@ -26,19 +26,18 @@ const documentsController = {
       user.documents = user.documents.concat(documentCreated._id);
 
       await user.save();
-      res
+      return res
         .status(200)
-        .json({ message: "Documento creado correctamente." })
-        .end();
+        .json({ message: "Documento creado correctamente." });
 
-        try {
+       /*  try {
           fs.unlinkSync('./tmp')
           console.log('carpeta removida')
         } catch(err) {
           console.error('Something wrong happened removing the file', err)
-        }        
+        }   */      
     } catch (error) {
-      res.status(400).json({ message: error.message }).end();
+      return res.status(400).json({ message: error.message });
     } 
 
    

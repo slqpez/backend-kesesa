@@ -3,7 +3,7 @@ const authController ={
 
     loginSucces:  (req, res) => {
         if (req.user) {
-          res.status(200).json({
+         return res.status(200).json({
             success: true,
             message: "user has successfully authenticated",
             user: req.user,
@@ -13,7 +13,7 @@ const authController ={
       },
 
       loginFailed: (req, res) => {
-        res.status(401).json({
+       return res.status(401).json({
           success: false,
           message: "user failed to authenticate.",
         });
@@ -21,7 +21,7 @@ const authController ={
 
       logout: (req, res) => {
         req.logout();
-        res.redirect("https://frontend-kesesa.vercel.app/")
+       return res.redirect("http://localhost:3000")
       },
 
       

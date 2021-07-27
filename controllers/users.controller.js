@@ -11,26 +11,24 @@ const userController = {
     };
 
     try {
-      const userCreated = await new User(newUser).save();
-      res.status(201).json({ message: "Usuario creado correctamente." }).end();
+      await new User(newUser).save();
+      return res.status(201).json({ message: "Usuario creado correctamente." });
     } catch (error) {
       if (error.code === 11000) {
-        res
+        return res
           .status(400)
-          .json({ message: "El correo ingresado ya existe." })
-          .end();
-        return;
+          .json({ message: "El correo ingresado ya existe." });
       }
-      res.status(400).json({ message: error.message }).end();
+      return res.status(400).json({ message: error.message }).end();
     }
   },
 
   getAllUsers: async (req, res) => {
     try {
       const users = await User.find({}).populate("documents");
-      res.status(200).json(users).end();
+      return res.status(200).json(users);
     } catch (error) {
-      res.status(400).json({ message: error.message }).end();
+      return res.status(400).json({ message: error.message });
     }
   },
 
@@ -40,17 +38,14 @@ const userController = {
     try {
       const userFinded = await User.findById(id);
       if (!userFinded) {
-        res
+        return res
           .status(404)
-          .json({ message: "El usuario no existe en la base de datos." })
-          .end();
-        return;
+          .json({ message: "El usuario no existe en la base de datos." });
       }
 
-      res.status(200).json(userFinded).end();
+      return res.status(200).json(userFinded);
     } catch (error) {
-      console.log(error);
-      res.status(400).json({ message: error.message }).end();
+      return res.status(400).json({ message: error.message });
     }
   },
 };

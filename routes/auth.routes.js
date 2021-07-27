@@ -21,7 +21,7 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "https://frontend-kesesa.vercel.app",
+    successRedirect: "http://localhost:3000",
     failureRedirect: "/auth/login/failed",
   })
 );
