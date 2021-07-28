@@ -2,7 +2,6 @@ require("dotenv").config();
 require("./config/DB.config.js");
 
 const express = require("express");
-const session = require("express-session");
 const fileupload = require("express-fileupload");
 const passport = require("passport");
 const cors = require("cors");
@@ -18,15 +17,10 @@ const authRouter = require("./routes/auth.routes.js");
 const app = express();
 
 app.use(
-  session({
-    secret: [process.env.SECRET_KEY],
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      secure: true,
-      sameSite: 'none',
-      maxAge: 24 * 60 * 60 * 100,
-    },
+  cookieSession({
+    name: "session",
+    keys: [process.env.SECRET_KEY],
+    maxAge: 24 * 60 * 60 * 100
   })
 );
 
@@ -40,9 +34,9 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3000", 
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
+    credentials: true 
   })
 );
 
