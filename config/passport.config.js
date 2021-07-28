@@ -9,7 +9,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback", //TODO Acá, cuando se suba a producción, hay que cambiar la url.
+      callbackURL: "https://backend-kesesa.herokuapp.com/auth/google/callback", //TODO Acá, cuando se suba a producción, hay que cambiar la url.
     },
     async function (request, accessToken, refreshToken, profile, done) {
       const currentUser = await User.findOne({

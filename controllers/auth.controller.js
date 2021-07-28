@@ -9,6 +9,8 @@ const authController ={
             user: req.user,
             cookies: req.cookies,
           })
+        }else{
+          return res.status(400).json({message: "Dont logged."})
         }
       },
 
