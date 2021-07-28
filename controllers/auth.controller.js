@@ -2,7 +2,6 @@
 const authController ={
 
     loginSucces:  (req, res) => {
-      console.log(req.user)
         if (req.user) {
          return res.status(200).json({
             success: true,
