@@ -8,7 +8,7 @@ const authController ={
             message: "user has successfully authenticated",
             user: req.user,
             cookies: req.cookies,
-          });
+          })
         }
       },
 

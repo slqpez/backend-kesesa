@@ -7,6 +7,7 @@ const passport = require("passport");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 const cookieParser = require("cookie-parser");
+const morgan = require("morgan")
 
 const indexRouter = require("./routes/index.routes.js");
 const usersRouter = require("./routes/users.routes.js");
@@ -23,6 +24,7 @@ app.use(
   })
 );
 
+app.use(morgan("dev"))
 app.use(express.json());
 app.use(cookieParser());
 
@@ -32,8 +34,9 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin:  "http://localhost:3000",
-    credentials: true,
+    origin: "http://localhost:3000", 
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true 
   })
 );
 
