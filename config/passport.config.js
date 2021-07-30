@@ -3,13 +3,14 @@ const User = require("../models/User.js")
 const GoogleStrategy = require("passport-google-oauth2").Strategy;
 
 //https://backend-kesesa.vercel.app
+// https://backend-kesesa.herokuapp.com
 
 passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://backend-kesesa.herokuapp.com/auth/google/callback", //TODO Acá, cuando se suba a producción, hay que cambiar la url.
+      callbackURL: "/auth/google/callback", 
     },
     async function (request, accessToken, refreshToken, profile, done) {
       const currentUser = await User.findOne({
