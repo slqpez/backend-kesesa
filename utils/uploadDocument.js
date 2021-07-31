@@ -3,7 +3,6 @@ const cloudinary = require('../config/cloudinary.config.js')
 
  function uploadDocument(file) {
        
-
     const response =  cloudinary.uploader.upload(file.tempFilePath, {
         folder: "documents",
      }, )

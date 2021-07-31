@@ -12,9 +12,12 @@ const documentsController = {
     
 
     const file = req.files.file
-    const {secure_url} = await uploadDocument(file)
+   
+
+     const {secure_url} = await uploadDocument(file)
     
-                                                    //TODO Login with Google.
+    
+                                                    
     const newDocument = {
       name,
       url: secure_url,
@@ -30,19 +33,26 @@ const documentsController = {
         .status(200)
         .json({ message: "Documento creado correctamente." });
 
-       /*  try {
-          fs.unlinkSync('./tmp')
-          console.log('carpeta removida')
-        } catch(err) {
-          console.error('Something wrong happened removing the file', err)
-        }   */      
+            
     } catch (error) {
       return res.status(400).json({ message: error.message });
-    } 
+    }   
 
    
   },
+  getDocumentsByUserId: async (req,res)=>{
+    const {userId} = req.body
+    try {
+      const documents = await Document.find({}).where('userId').equals(userId).populate("users");
+      return res.status(200).json(documents);
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
+    }
+   
+  }
 };
+
+
 
 
 const removeTmp = (path)=>{
@@ -52,3 +62,10 @@ const removeTmp = (path)=>{
 }
 
 module.exports = documentsController;
+
+/*  try {
+          fs.unlinkSync('./tmp')
+          console.log('carpeta removida')
+        } catch(err) {
+          console.error('Something wrong happened removing the file', err)
+        }   */ 
