@@ -17,6 +17,7 @@ const authRouter = require("./routes/auth.routes.js");
 
 const app = express();
 
+app.enable("trust proxy");
 
 app.use(express.static('build'))
 
