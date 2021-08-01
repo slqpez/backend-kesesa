@@ -4,6 +4,7 @@ require("./config/DB.config.js");
 const express = require("express");
 const fileupload = require("express-fileupload");
 const passport = require("passport");
+const path = require('path');
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 const cookieParser = require("cookie-parser");
@@ -16,6 +17,12 @@ const authRouter = require("./routes/auth.routes.js");
 
 const app = express();
 
+
+app.use(express.static('build'))
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './build', 'index.html'));
+});
 app.use(
   cookieSession({
     name: "session",

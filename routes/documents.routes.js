@@ -5,7 +5,7 @@ const documentsController = require('../controllers/documents.controller.js')
 
 router.post('/add', documentsController.add)
  
-router.get('/getDocuments', documentsController.getDocumentsByUserId)
+router.post('/getDocuments', documentsController.getDocumentsByUserId)
 
 
 

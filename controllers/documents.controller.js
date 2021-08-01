@@ -42,6 +42,7 @@ const documentsController = {
   },
   getDocumentsByUserId: async (req,res)=>{
     const {userId} = req.body
+  
     try {
       const documents = await Document.find({}).where('userId').equals(userId).populate("users");
       return res.status(200).json(documents);
