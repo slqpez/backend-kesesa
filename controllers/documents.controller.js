@@ -50,6 +50,32 @@ const documentsController = {
       return res.status(400).json({ message: error.message });
     }
    
+  }, 
+  getDocumentById: async (req,res)=>{
+    const {id} = req.body
+    try {
+      const document = await Document.findById(id)
+      return res.status(200).json(document)
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
+    }
+  },
+
+  deleteDocument: async (req, res) => {
+    const {id} = req.params
+    try {
+      const documentToDelete = await Document.findById({_id:id})
+      const user = await User.findById(documentToDelete.userId);
+      const newDocuments = user.documents.filter(doc => JSON.stringify(doc) !== JSON.stringify(id))
+      user.documents = newDocuments;
+      await user.save();
+      const response = await Document.findByIdAndDelete(id)
+      
+      res.status(200).json(response).end()
+    } catch (error) {
+      res.status(400).json({message:"No se pudo eliminar el documento."}).res.end()
+    }
+   
   }
 };
 
