@@ -57,6 +57,10 @@ app.use("/users", usersRouter);
 app.use("/documents", documentsRouter);
 app.use("/auth", authRouter);
 
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './build', 'index.html'));
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
