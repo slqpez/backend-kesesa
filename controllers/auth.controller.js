@@ -22,7 +22,7 @@ const authController = {
 
   logout: (req, res) => {
     req.logout();
-    return res.redirect("/");
+    return res.redirect("http://localhost:3000");
   },
 };
 

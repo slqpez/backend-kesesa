@@ -25,7 +25,7 @@ const userController = {
 
   getAllUsers: async (req, res) => {
     try {
-      const users = await User.find({}).populate("documents");
+      const users = await User.find({}).populate("documents").populate("travels");
       return res.status(200).json(users);
     } catch (error) {
       return res.status(400).json({ message: error.message });

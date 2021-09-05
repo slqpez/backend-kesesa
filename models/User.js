@@ -20,7 +20,8 @@ const UserSchema = new mongoose.Schema({
         trim: true,
     },
 
-    documents: [{ type: Schema.Types.ObjectId, ref: 'Document' }]
+    documents: [{ type: Schema.Types.ObjectId, ref: 'Document' }],
+    travels: [{ type: Schema.Types.ObjectId, ref: 'Travel' }]
 })
 
 

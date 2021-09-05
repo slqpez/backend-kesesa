@@ -14,6 +14,7 @@ const indexRouter = require("./routes/index.routes.js");
 const usersRouter = require("./routes/users.routes.js");
 const documentsRouter = require("./routes/documents.routes.js");
 const authRouter = require("./routes/auth.routes.js");
+const travelsRouter = require("./routes/travels.routes")
 
 const app = express();
 
@@ -53,9 +54,10 @@ app.use(
 );
 
 app.use("/", indexRouter);
+app.use("/auth", authRouter);
 app.use("/users", usersRouter);
 app.use("/documents", documentsRouter);
-app.use("/auth", authRouter);
+app.use("/travels", travelsRouter);
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './build', 'index.html'));

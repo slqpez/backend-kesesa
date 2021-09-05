@@ -14,6 +14,10 @@ const DocumentSchema = new mongoose.Schema({
     required: [true, "Por favor ingrese una URL."],
   },
 
+  travelId: {
+    type: Schema.Types.ObjectId,
+    ref: "Travel",
+  },
   userId: {
     type: Schema.Types.ObjectId,
     ref: "User",
