@@ -3,8 +3,6 @@ const User = require("../models/User.js")
 const GoogleStrategy = require("passport-google-oauth2").Strategy;
 
 
-// https://backend-kesesa.herokuapp.com
-
 passport.use(
   new GoogleStrategy(
     {

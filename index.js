@@ -8,7 +8,7 @@ const path = require('path');
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 const cookieParser = require("cookie-parser");
-//const morgan = require("morgan")
+
 
 const indexRouter = require("./routes/index.routes.js");
 const usersRouter = require("./routes/users.routes.js");
@@ -31,7 +31,6 @@ app.use(
   })
 );
 
-//app.use(morgan("dev"))
 app.use(express.json());
 app.use(cookieParser());
 
